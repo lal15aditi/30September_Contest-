@@ -1,6 +1,7 @@
 let timeBox = document.querySelector("#time-left");
 let timerId = 1;
 
+// to create timer up div with yellow background
 function newTimeUp(beforeElement) {
     let timeUpElement = document.createElement('div');
     timeUpElement.className = 'time-up';
@@ -12,6 +13,7 @@ function newTimeUp(beforeElement) {
     timeBox.insertBefore(timeUpElement, beforeElement);
 }
 
+// to delete the yellow-backgroud timer div upon clicking delete/stop
 function deleteTimeUp(target) {
     target.parentNode.remove();
     let noTimer = document.querySelector('.no-timers');
@@ -34,6 +36,7 @@ document.querySelector('.set-btn').addEventListener('click', (event) => {
     document.getElementById('set-second').innerText = '00';
 })
 
+// to create a new timer div upon clicking set button
 function createTimerBox(totalTime) {
     let hr = Math.floor(totalTime/3600);
     let min = Math.floor(totalTime%3600/60);
@@ -65,16 +68,19 @@ function createTimerBox(totalTime) {
     startTimer(totalTime, newTimer);
 }
 
+// to start timer of the newly created div from set button
 function startTimer(totalTime, newTimer) {
     let hour = newTimer.querySelector('.hour');
     let minute = newTimer.querySelector('.minute');
     let second = newTimer.querySelector('.second');
 
     let intervalId = setInterval(() => {
+        // if we delete/stop the timer, it has to stop
         if(document.getElementById(newTimer.id) == null) {
             clearInterval(intervalId);
             return;
         }
+        // when timer time is 00 : 00 : 00 means timer is ended, then audio will play
         if(totalTime == 0) {
             try {
                 let audio = new Audio('timer_sound.mp3');
