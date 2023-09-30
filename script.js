@@ -28,7 +28,20 @@ document.querySelector('.set-btn').addEventListener('click', (event) => {
     let min = Number(document.getElementById('set-minute').innerText);
     let sec = Number(document.getElementById('set-second').innerText);
 
+    let stringCat = document.getElementById('set-hour').innerText + document.getElementById('set-minute').innerText + document.getElementById('set-hour').innerText;
+    // console.log(stringCat);
     let totalTime = hr*3600 + min*60 + sec;
+    if(totalTime <= 0) {
+        alert("Time should be greater than zero second!!");
+        return;
+    }
+    for(let i = 0; i < stringCat.length; i++) {
+        if(stringCat.charCodeAt(i) < 48 || stringCat.charCodeAt(i) > 57) {
+            alert("Enter a valid time!!");
+            return;
+        }
+    }
+    
     createTimerBox(totalTime);
 
     document.getElementById('set-hour').innerText = '00';
