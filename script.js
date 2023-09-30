@@ -28,7 +28,7 @@ document.querySelector('.set-btn').addEventListener('click', (event) => {
     let min = Number(document.getElementById('set-minute').innerText);
     let sec = Number(document.getElementById('set-second').innerText);
 
-    let stringCat = document.getElementById('set-hour').innerText + document.getElementById('set-minute').innerText + document.getElementById('set-hour').innerText;
+    let stringCat = document.getElementById('set-hour').innerText + document.getElementById('set-minute').innerText + document.getElementById('set-second').innerText;
     // console.log(stringCat);
     let totalTime = hr*3600 + min*60 + sec;
     if(totalTime <= 0) {
@@ -38,6 +38,9 @@ document.querySelector('.set-btn').addEventListener('click', (event) => {
     for(let i = 0; i < stringCat.length; i++) {
         if(stringCat.charCodeAt(i) < 48 || stringCat.charCodeAt(i) > 57) {
             alert("Enter a valid time!!");
+            document.getElementById('set-hour').innerText = '00';
+            document.getElementById('set-minute').innerText = '00';
+            document.getElementById('set-second').innerText = '00';
             return;
         }
     }
