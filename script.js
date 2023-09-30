@@ -75,7 +75,16 @@ function startTimer(totalTime, newTimer) {
             clearInterval(intervalId);
             return;
         }
-        console.log(hour.innerText, minute.innerText, second.innerText);
+        if(totalTime == 0) {
+            try {
+                let audio = new Audio('timer_sound.mp3');
+                audio.play();
+                newTimeUp(newTimer);
+                newTimer.remove();
+            } catch (err) {}
+            clearInterval(intervalId);
+        }
+        // console.log(hour.innerText, minute.innerText, second.innerText);
         totalTime--;
 
         let h = Math.floor(totalTime/3600);
@@ -86,12 +95,5 @@ function startTimer(totalTime, newTimer) {
         minute.innerText = m<10 ? '0'+m:m;
         second.innerText = s<10 ? '0'+s:s;
 
-        if(totalTime<0) {
-            try {
-                newTimeUp(newTimer);
-                newTimer.remove();
-            } catch (err) {}
-            clearInterval(intervalId);
-        }
     }, 1000);
 }
