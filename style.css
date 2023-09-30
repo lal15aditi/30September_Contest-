@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+:root{
+    --currentbg: #39393e;
+    --yellow: #f0f757;
+    --mainbg: #1d1d23;
+    --setTimebg: #34344a;
+    --white: #ffffff;
+}
+button{
+    cursor: pointer;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    width: 100px;
+}
+.underline {
+    text-decoration: underline;
+}
+.d-none {
+    display: none;
+}
+.main {
+    background-color: var(--mainbg);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    min-height: 100vh;
+}
+.heading {
+    text-align: center;
+    margin-top: 20px;
+}
+.main-timer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 450px;
+    /* height: 25px; */
+    gap: 20px;
+    background-color: var(--setTimebg);
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgb(83, 82, 82) inset;
+}
+.main-timer>p {
+    width: 100px;
+    /* border: 1px solid red; */
+}
+.time {
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+    width: 150px;
+    /* border: 1px solid red; */
+}
+.set-btn {
+    background-color: var(--yellow);
+    color: var(--setTimebg);
+}
+.set-btn:hover {
+    box-shadow: 0 0 3px rgb(232, 232, 206);
+}
+.hour,
+.minute,
+.second {
+    width: 30px;
+    text-align: center;
+}
+.hour:focus,
+.minute:focus,
+.second:focus {
+    outline: none;
+}
+.current-timers {
+    background-color: var(--currentbg);
+    color: white;
+    border: none;
+    padding: 10px 70px;
+    border-radius: 25px;
+    /* box-shadow: 0 0 5px grey; */
+}
+.time-up {
+    display: flex;
+    justify-content: space-between;
+    width: 450px;
+    /* height: 25px; */
+    background-color: var(--yellow);
+    padding: 20px 30px;
+    border-radius: 8px;
+}
+.time-up>:first-child {
+    width: 100px;
+}
+.time-up>p {
+    color: var(--setTimebg);
+    text-align: center;
+    font-size: 25px;
+    /* padding-left: 100px; */
+}
+.stop-btn {
+    background-color: var(--setTimebg);
+}
+.stop-btn:hover {
+    box-shadow: 0px 0px 3px rgb(91, 89, 89);
+}
+#time-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
